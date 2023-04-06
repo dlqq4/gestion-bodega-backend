@@ -43,9 +43,9 @@ export class ProductController {
 
     @ApiOperation({ summary: 'Update to product' })
     @Put('update-product')
-    actualizar(@Body() id : string, @Body() producto : ProductEntityInfra) : Observable<ProductEntityInfra> {
+    actualizar(@Body() id : string, @Body() product : ProductEntityInfra) : Observable<ProductEntityInfra> {
         this.useCase.toUpdateProduct()
-        return this.useCase.execute(id, producto)
+        return this.useCase.execute(id, product)
     }
 
      

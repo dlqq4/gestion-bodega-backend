@@ -1,16 +1,17 @@
 import { Module } from "@nestjs/common";
 import { ProductService } from "./services/product.service";
 import { MongoModule } from "./databases/mongo/mongo.module";
-import { InventoryService } from "./services/inventory.service";
-import { WareHouseService } from "./services/warehouse.service";
+
+import { InventoryService } from "./services/Inventory.service";
+import { WareHouseService } from "./services/WareHouse.service";
 
 
 @Module({
     imports: [MongoModule],
 
-    providers: [ProductService, InventoryService, WareHouseService],
+    providers: [ProductService, WareHouseService,  InventoryService ],
 
-    exports: [ProductService, InventoryService, WareHouseService]
+    exports: [ProductService, WareHouseService, InventoryService]
 
 })
 

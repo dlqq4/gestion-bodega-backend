@@ -24,7 +24,9 @@ export class InventoryMongoRepository implements IRepository<InventoryMongo>{
     }
 
     findAll(): Observable<InventoryMongo[]> {
-        return from(this.InventoryRepo.find())
+        return from(this.InventoryRepo.find()
+        .populate("product")
+        .populate("warehouse"))
         .pipe(map((Inventorys: InventoryMongoDocument[]) => { return Inventorys }))
         
     }

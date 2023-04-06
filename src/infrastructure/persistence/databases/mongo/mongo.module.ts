@@ -24,7 +24,8 @@ import { WareHouseMongoRepository } from "./repositories/warehouse.repository";
     providers: [
         ProductMongoRepository,
         InventoryMongoRepository,
-        WareHouseMongoRepository],
+        WareHouseMongoRepository
+    ],
     
     exports: [
         ProductMongoRepository,
