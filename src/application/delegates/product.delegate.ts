@@ -1,7 +1,10 @@
 import { Observable } from 'rxjs';
 import { IUseCase } from '../use-case/interface/use-case.interface';
 import { IProductRepository } from 'src/domain/i-repository/i-product.repositoty';
-import { CreateUseCase } from '../use-case/create.use-case';
+import { CreateProductUseCase} from '../use-case/create-product.use-case';
+import { DeleteProductUseCase } from '../use-case/delete-product.use-case';
+import { FindProductUseCase } from '../use-case/find-product.use-case';
+import { UpdateProductUseCase } from '../use-case/update-product.use-case';
 
 export class ProductDelegate implements IUseCase {
 
@@ -16,9 +19,20 @@ export class ProductDelegate implements IUseCase {
   }
 
   toCreateProduct(): void {
-    this.delegate = new CreateUseCase(this.ProductRepository);
+    this.delegate = new CreateProductUseCase(this.ProductRepository);
   }
 
-  //RESTO DE CASOS DE USO RELACIONADOS A PRODUCT
+  toDeleteProduct(): void {
+    this.delegate = new DeleteProductUseCase(this.ProductRepository);
+  }
+
+  toFindProduct(): void {
+    this.delegate = new FindProductUseCase(this.ProductRepository);
+  }
+
+  toUpdateProduct(): void {
+    this.delegate = new UpdateProductUseCase(this.ProductRepository);
+  }
   
+
 }

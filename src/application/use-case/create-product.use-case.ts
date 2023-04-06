@@ -3,7 +3,7 @@ import { IUseCase } from "./interface/use-case.interface";
 import { ProductDomain } from "src/domain/models/product.model";
 import { Observable } from "rxjs";
 
-export class CreateUseCase implements IUseCase {
+export class CreateProductUseCase implements IUseCase {
 
     constructor(private readonly productRepository: IProductRepository) {
 

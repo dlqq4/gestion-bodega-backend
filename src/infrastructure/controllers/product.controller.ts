@@ -2,7 +2,6 @@ import { Body, Controller, Delete, Get, Post, Put, UseGuards } from "@nestjs/com
 import { Observable } from "rxjs";
 import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { ProductDelegate } from "src/application/delegates/product.delegate";
-import { ProductMongoRepository } from "../persistence/databases/mongo/repositories/product.repository";
 import { ProductEntityInfra } from "../persistence/entities/product.entity";
 import { ProductService } from "../persistence/services/product.service";
 
@@ -34,35 +33,29 @@ export class ProductController {
     }
 
 
-    /*
+    @ApiOperation({ summary: 'Delete to product' })
+    @Delete('delete-product')
+    eliminar(@Body() id : string) : Observable <boolean>  {
+        this.useCase.toDeleteProduct()
+        return this.useCase.execute(id);
+    }
 
-    @ApiOperation({ summary: 'Actualiza un producto' })
-    @Put('actualizar-producto')
-    actualizar(@Body() _id : string, @Body() producto : ProductoDto) : Observable<ProductoModelo> {
-        const casoUso = new ActualizarProductoCasoDeUso(this.productoRepositorio);
-        return casoUso.execute(_id, producto)
+
+    @ApiOperation({ summary: 'Update to product' })
+    @Put('update-product')
+    actualizar(@Body() id : string, @Body() producto : ProductEntityInfra) : Observable<ProductEntityInfra> {
+        this.useCase.toUpdateProduct()
+        return this.useCase.execute(id, producto)
+    }
+
+     
+    @ApiOperation({ summary: 'Search to all product' })
+    @Get('find-all-product')
+    buscarTodos() : Observable <ProductEntityInfra[]>  {
+        this.useCase.toFindProduct()
+        return this.useCase.execute()
     }
 
     
-    
-    
-    @ApiOperation({ summary: 'Busca todos los productos' })
-    @Get('buscar-todos')
-    buscarTodos() : Observable <ProductoModelo[]>  {
-        const casoUso = new BuscarTodosCasoDeUso(this.productoRepositorio);
-        return casoUso.execute();
-    }
-    
-    
-    @ApiOperation({ summary: 'Elimina un producto' })
-    @UseGuards(EliminarGuard)
-    @Delete('eliminar-producto')
-    eliminar(@Body() _id : string) : Observable <boolean>  {
-        const casoUso = new EliminarProductoCasoDeUso(this.productoRepositorio);
-        return casoUso.execute(_id);
-    }
-    
-    */
-
 
 }

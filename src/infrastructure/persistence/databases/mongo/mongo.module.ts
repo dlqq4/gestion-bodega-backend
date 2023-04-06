@@ -16,3 +16,4 @@ import { ProductMongoRepository } from "./repositories/product.repository";
     exports: [ProductMongoRepository, MongooseModule.forFeature([{name : ProductMongo.name, schema: ProductSchema}])]
 })
 export class MongoModule {}
+
