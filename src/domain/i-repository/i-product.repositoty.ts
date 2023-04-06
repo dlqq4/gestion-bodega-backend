@@ -5,7 +5,7 @@ import { ProductDomain } from "../models/product.model";
 export interface IProductRepository<Model extends ProductDomain = ProductDomain> {
 
 
-    find(): Observable<Model[]>;
+    findAll(): Observable<Model[]>;
 
     create(model: Model): Observable<Model>;
 

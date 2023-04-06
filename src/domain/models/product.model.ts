@@ -1,7 +1,8 @@
+import { IProductModel } from "../interface/i-producto.model";
 
 
 
-export class ProductDomain {
+export class ProductDomain implements IProductModel{
 
     
     brand: string;

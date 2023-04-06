@@ -8,7 +8,7 @@ import { MongooseModuleOptions } from "@nestjs/mongoose/dist";
 *
 */
 @Injectable()
-export class MongoConfigServicio implements MongooseOptionsFactory {
+export class MongoConfigService implements MongooseOptionsFactory {
 
 
    /**

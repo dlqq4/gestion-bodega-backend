@@ -1,9 +1,10 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose, { HydratedDocument } from "mongoose";
+import { ProductDomain } from "src/domain/models/product.model";
 
 
 @Schema({ collection: 'product', versionKey: false })
-export class ProductMongo { //ACA DEBO EXTENDER DE EL PRODUCTO MODELO DEL DOMINIO.
+export class ProductMongo extends ProductDomain{ //ACA DEBO EXTENDER DE EL PRODUCTO MODELO DEL DOMINIO.
 
 
     @Prop({ type: String, index: true })
@@ -22,5 +23,5 @@ export class ProductMongo { //ACA DEBO EXTENDER DE EL PRODUCTO MODELO DEL DOMINI
 
 export const ProductSchema = SchemaFactory.createForClass(ProductMongo);
 
-export type ProductDocument = HydratedDocument<ProductMongo>;
+export type ProductMongoDocument = HydratedDocument<ProductMongo>;
 

@@ -1,10 +1,11 @@
 import { Module } from "@nestjs/common";
 import { PersistenceModule } from "./persistence/persistence.module";
+import { ProductController } from "./controllers/product.controller";
 
 
 @Module({
     imports:[PersistenceModule],
-    controllers:[],
+    controllers:[ProductController],
     providers:[],
     exports:[]
 })

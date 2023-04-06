@@ -1,15 +1,16 @@
+import { Observable } from "rxjs";
 
 
 export interface IRepository<T> {
 
-    findAll(): Promise<T[]>;
+    findAll(): Observable<T[]>;
 
-    findById(id: string): Promise<T>;
+    findById(id: string): Observable<T>;
 
-    create(entity: T): Promise<T | null>;
+    create(entity: T): Observable<T | null>;
 
-    update(id: string, entity: T): Promise<T>;
+    update(id: string, entity: T): Observable<T>;
 
-    delete(id: string): Promise<boolean>;
+    delete(id: string): Observable<boolean>;
 
 }
