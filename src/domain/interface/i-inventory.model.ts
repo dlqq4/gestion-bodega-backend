@@ -1,12 +1,16 @@
+import { IProductModel } from "./i-producto.model";
+import { IWareHouseModel } from "./i-warehouse.model";
 
 
 export interface IInventoryModel {
 
-    product: string;
+    product: IProductModel;
+
+    warehouse: IWareHouseModel;
     
     level: string;
 
-    quantity: string;
+    quantity: number;
 
 
 }
