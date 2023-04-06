@@ -36,14 +36,5 @@ export class ProductMongoRepository implements IRepository<ProductMongo>{
         }))
     }
 
-    /*
-    findById(id: string): Observable<ProductMongo> {
-        return from(this.productRepo.findById(id))
-       .pipe(catchError((error: Error) => {
-            throw new InternalServerErrorException(`Something went wrong`)
-        }))
-    }
-    */
-
-
+    
 }
