@@ -1,5 +1,5 @@
 import { IInventoryRepository } from "src/domain/i-repository/i-Inventory.repositoty";
-import { IUseCase } from "./interface/use-case.interface";
+import { IUseCase } from "../interface/use-case.interface";
 import { InventoryDomain } from "src/domain/models/inventory.model";
 import { Observable, map, switchMap } from "rxjs";
 

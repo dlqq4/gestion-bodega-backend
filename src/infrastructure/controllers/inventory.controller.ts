@@ -55,13 +55,7 @@ export class InventoryController {
         return this.useCase.execute(id);
     }
 
-    @Put('level')
-    setInventoryLevel(@Body() inventoryData: { id: string }): Observable<string> {
-        const { id } = inventoryData;
-        this.useCase.toSetLevelInventory()
-        return this.useCase.execute(id);
-    }
-
+    
 
     @ApiOperation({ summary: 'Update to Inventory' })
     @Put('update-inventory')
@@ -70,15 +64,48 @@ export class InventoryController {
         return this.useCase.execute(id, Inventory)
     }
 
+    //************************************************************************************/
+    //********************************COMPLEX USE CASES***********************************/
 
-    
+    /**
+     * ESTE METODO SOLO PIDE ID Y SETEA EL LEVEL SEGUN QUANTITY
+     * @param inventoryData 
+     * @returns 
+     */
+    @Put('level')
+    setInventoryLevel(@Body() inventoryData: { id: string }): Observable<string> {
+        const { id } = inventoryData;
+        this.useCase.toSetLevelInventory()
+        return this.useCase.execute(id);
+    }
+
+
+    /**
+     * ESTE METODO PIDE ID DE INVENTORY Y QUANTITY LUEGO SETEA LEVEL SEGUN QUANTITY
+     * @param id 
+     * @param Inventory 
+     * @returns 
+     */
     @ApiOperation({ summary: 'Update Inventory Quantity and Level' })
     @Put('update-quantity-and-level')
     updateQuantityInventory(@Body() id: string, @Body() Inventory: InventoryEntityInfra): Observable<InventoryEntityInfra> {
-        const {quantity } = Inventory;
+        const { quantity } = Inventory;
         this.useCase.toUpdateQuantityInventory();
         return this.useCase.execute(id, { quantity } as InventoryEntityInfra);
     }
+
+    /**
+     * AL HACER UNA BUSQUEDA POR ID DEVUELVE UN ALERTA SOBRE EL ESTADO DEL LEVEL
+     * @param id 
+     * @returns 
+     */
+    @Get('inventory-alert')
+    lowInventoryAlert(@Body() id: string): Observable<string> {
+        this.useCase.toLowInventoryAlert()
+        return this.useCase.execute(id);
+    }
+
+
 
 
 }

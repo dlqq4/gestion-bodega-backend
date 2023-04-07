@@ -1,11 +1,11 @@
 import { Observable } from 'rxjs';
 import { IUseCase } from '../use-case/interface/use-case.interface';
 import { IWareHouseRepository } from 'src/domain/i-repository/i-WareHouse.repositoty';
-import { CreateWareHouseUseCase} from '../use-case/create-WareHouse.use-case';
-import { DeleteWareHouseUseCase } from '../use-case/delete-WareHouse.use-case';
-import { FindWareHouseUseCase } from '../use-case/find-WareHouse.use-case';
-import { UpdateWareHouseUseCase } from '../use-case/update-WareHouse.use-case';
-import { FindByIdWareHouseUseCase } from '../use-case/find-by-id-warehouse.use-case';
+import { CreateWareHouseUseCase} from '../use-case/warehouse/create-warehouse.use-case';
+import { DeleteWareHouseUseCase } from '../use-case/warehouse/delete-warehouse.use-case';
+import { FindWareHouseUseCase } from '../use-case/warehouse/find-warehouse.use-case';
+import { UpdateWareHouseUseCase } from '../use-case/warehouse/update-warehouse.use-case';
+import { FindByIdWareHouseUseCase } from '../use-case/warehouse/find-by-id-warehouse.use-case';
 
 export class WareHouseDelegate implements IUseCase {
 

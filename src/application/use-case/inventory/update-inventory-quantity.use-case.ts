@@ -1,7 +1,7 @@
 import { Observable, switchMap } from "rxjs";
 import { IInventoryRepository } from "src/domain/i-repository/i-Inventory.repositoty";
 import { InventoryDomain } from "src/domain/models/inventory.model";
-import { IUseCase } from "./interface/use-case.interface";
+import { IUseCase } from "../interface/use-case.interface";
 
 
 export class UpdateInventoryQuantityUseCase implements IUseCase {
