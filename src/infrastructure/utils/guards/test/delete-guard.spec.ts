@@ -19,7 +19,7 @@ describe('DeleteGuard', () => {
       //arranger
       const req = {
         body: {
-          contra: 'chauProducto',
+          contra: 'byeProduct',
         },
       };
 

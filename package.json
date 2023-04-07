@@ -67,6 +67,20 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/*.spec.js",
+      ".test.js",
+      ".main.ts",
+      ".module.ts",
+      "config.ts",
+      ".index.ts",
+      ".app.e2e-spec.ts",
+      "Interface.ts"
+    ]
+
+
   }
 }
