@@ -5,6 +5,7 @@ import { CreateProductUseCase} from '../use-case/create-product.use-case';
 import { DeleteProductUseCase } from '../use-case/delete-product.use-case';
 import { FindProductUseCase } from '../use-case/find-product.use-case';
 import { UpdateProductUseCase } from '../use-case/update-product.use-case';
+import { FindByIdProductUseCase } from '../use-case/find-by-id-product.use-case';
 
 export class ProductDelegate implements IUseCase {
 
@@ -34,5 +35,8 @@ export class ProductDelegate implements IUseCase {
     this.delegate = new UpdateProductUseCase(this.ProductRepository);
   }
   
+  toFindByIdProduct(): void {
+    this.delegate = new FindByIdProductUseCase(this.ProductRepository);
+  }
 
 }

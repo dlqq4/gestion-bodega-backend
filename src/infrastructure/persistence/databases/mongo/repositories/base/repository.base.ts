@@ -11,6 +11,6 @@ export interface IRepository<T> {
 
     delete(id: string): Observable<boolean>;
 
-    //findById(id: string): Observable<T>;
+    findById(id: string): Observable<T>;
 
 }

@@ -5,6 +5,7 @@ import { CreateInventoryUseCase} from '../use-case/create-Inventory.use-case';
 import { DeleteInventoryUseCase } from '../use-case/delete-Inventory.use-case';
 import { FindInventoryUseCase } from '../use-case/find-Inventory.use-case';
 import { UpdateInventoryUseCase } from '../use-case/update-Inventory.use-case';
+import { FindByIdInventoryUseCase } from '../use-case/find-by-id-inventory.use-case';
 
 export class InventoryDelegate implements IUseCase {
 
@@ -34,5 +35,8 @@ export class InventoryDelegate implements IUseCase {
     this.delegate = new UpdateInventoryUseCase(this.InventoryRepository);
   }
   
+  toFindByIdInventory(): void {
+    this.delegate = new FindByIdInventoryUseCase(this.InventoryRepository);
+  }
 
 }

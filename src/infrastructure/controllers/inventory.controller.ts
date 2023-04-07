@@ -57,5 +57,12 @@ export class InventoryController {
     }
 
     
+     @Get('find-by-id')
+    findById(@Body() id: string): Observable<InventoryEntityInfra> {
+        this.useCase.toFindByIdInventory()
+        return this.useCase.execute(id);
+    }
+    
+    
 
 }

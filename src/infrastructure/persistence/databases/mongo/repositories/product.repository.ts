@@ -3,7 +3,7 @@ import { IRepository } from "./base/repository.base"
 import { ProductMongo, ProductMongoDocument } from "../schema/product.schema"
 import { Model } from "mongoose"
 import { InjectModel } from "@nestjs/mongoose"
-import { Observable, catchError, from, map } from "rxjs"
+import { Observable, catchError, from, map, of } from "rxjs"
 
 
 
@@ -14,8 +14,15 @@ export class ProductMongoRepository implements IRepository<ProductMongo>{
 
     }
 
+
+    findById(id: string): Observable<ProductMongo> {
+        return from(this.productRepo.findById(id))
+        .pipe(map((product: ProductMongoDocument) => { return product }))   
+    }
+
     create(entity: ProductMongo): Observable<ProductMongo> {
         return from(this.productRepo.create(entity))
+        
     }
     
     delete(_id: string): Observable<boolean> {    

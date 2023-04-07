@@ -57,5 +57,11 @@ export class WareHouseController {
     }
 
     
+     @Get('find-by-id')
+    findById(@Body() id: string): Observable<WareHouseEntityInfra> {
+        this.useCase.toFindByIdWareHouse()
+        return this.useCase.execute(id);
+    }
+    
 
 }

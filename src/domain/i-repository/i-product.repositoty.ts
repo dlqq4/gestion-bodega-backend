@@ -13,5 +13,7 @@ export interface IProductRepository<Model extends ProductDomain = ProductDomain>
     
     delete(id: string): Observable<boolean>;
 
+    findById(id: string): Observable<Model>;
+
 
   }

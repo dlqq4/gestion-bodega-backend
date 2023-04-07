@@ -14,5 +14,7 @@ export interface IInventoryRepository<Model extends InventoryDomain = InventoryD
     
     delete(id: string): Observable<boolean>;
 
+    findById(id: string): Observable<Model>;
+
 
   }

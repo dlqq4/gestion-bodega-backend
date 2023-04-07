@@ -5,6 +5,7 @@ import { CreateWareHouseUseCase} from '../use-case/create-WareHouse.use-case';
 import { DeleteWareHouseUseCase } from '../use-case/delete-WareHouse.use-case';
 import { FindWareHouseUseCase } from '../use-case/find-WareHouse.use-case';
 import { UpdateWareHouseUseCase } from '../use-case/update-WareHouse.use-case';
+import { FindByIdWareHouseUseCase } from '../use-case/find-by-id-warehouse.use-case';
 
 export class WareHouseDelegate implements IUseCase {
 
@@ -34,5 +35,8 @@ export class WareHouseDelegate implements IUseCase {
     this.delegate = new UpdateWareHouseUseCase(this.WareHouseRepository);
   }
   
+  toFindByIdWareHouse(): void {
+    this.delegate = new FindByIdWareHouseUseCase(this.WareHouseRepository);
+  }
 
 }

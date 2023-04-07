@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Post, Put, UseGuards } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from "@nestjs/common";
 import { Observable } from "rxjs";
 import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { ProductDelegate } from "src/application/delegates/product.delegate";
@@ -18,16 +18,16 @@ export class ProductController {
      * de una clase.
      * @param {ProductoRepositorio} productoRepositorio - ProductoRepositorio
      */
-    constructor(private readonly productService : ProductService) {
+    constructor(private readonly productService: ProductService) {
 
         this.useCase = new ProductDelegate(this.productService);
 
     }
 
-    
+
     @ApiOperation({ summary: 'Create a new product' })
     @Post('create-product')
-    crear(@Body() product: ProductEntityInfra) : Observable<ProductEntityInfra> {
+    crear(@Body() product: ProductEntityInfra): Observable<ProductEntityInfra> {
         this.useCase.toCreateProduct()
         return this.useCase.execute(product)
     }
@@ -35,7 +35,7 @@ export class ProductController {
 
     @ApiOperation({ summary: 'Delete to product' })
     @Delete('delete-product')
-    eliminar(@Body() id : string) : Observable <boolean>  {
+    eliminar(@Body() id: string): Observable<boolean> {
         this.useCase.toDeleteProduct()
         return this.useCase.execute(id);
     }
@@ -43,19 +43,28 @@ export class ProductController {
 
     @ApiOperation({ summary: 'Update to product' })
     @Put('update-product')
-    actualizar(@Body() id : string, @Body() product : ProductEntityInfra) : Observable<ProductEntityInfra> {
+    actualizar(@Body() id: string, @Body() product: ProductEntityInfra): Observable<ProductEntityInfra> {
         this.useCase.toUpdateProduct()
         return this.useCase.execute(id, product)
     }
 
-     
+
     @ApiOperation({ summary: 'Search to all product' })
     @Get('find-all-product')
-    buscarTodos() : Observable <ProductEntityInfra[]>  {
+    buscarTodos(): Observable<ProductEntityInfra[]> {
         this.useCase.toFindProduct()
         return this.useCase.execute()
     }
 
     
+    
+    @Get('find-by-id')
+    findById(@Body() id: string): Observable<ProductEntityInfra> {
+        this.useCase.toFindByIdProduct()
+        return this.useCase.execute(id);
+    }
+    
+    
+
 
 }

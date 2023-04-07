@@ -13,5 +13,7 @@ export interface IWareHouseRepository<Model extends WareHouseDomain = WareHouseD
     
     delete(id: string): Observable<boolean>;
 
+    findById(id: string): Observable<Model>;
+
 
   }
