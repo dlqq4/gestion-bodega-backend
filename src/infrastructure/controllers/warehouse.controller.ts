@@ -4,6 +4,7 @@ import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { WareHouseDelegate } from "src/application/delegates/WareHouse.delegate";
 import { WareHouseEntityInfra } from "../persistence/entities/WareHouse.entity";
 import { WareHouseService } from "../persistence/services/WareHouse.service";
+import { WareHouseDto } from "../dto/warehouse.dto";
 
 
 
@@ -27,7 +28,7 @@ export class WareHouseController {
     
     @ApiOperation({ summary: 'Create a new WareHouse' })
     @Post('create-wareHouse')
-    crear(@Body() WareHouse: WareHouseEntityInfra) : Observable<WareHouseEntityInfra> {
+    crear(@Body() WareHouse: WareHouseDto) : Observable<WareHouseEntityInfra> {
         this.useCase.toCreateWareHouse()
         return this.useCase.execute(WareHouse)
     }
@@ -43,7 +44,7 @@ export class WareHouseController {
 
     @ApiOperation({ summary: 'Update to WareHouse' })
     @Put('update-wareHouse')
-    actualizar(@Body() id : string, @Body() WareHouse : WareHouseEntityInfra) : Observable<WareHouseEntityInfra> {
+    actualizar(@Body() id : string, @Body() WareHouse : WareHouseDto) : Observable<WareHouseEntityInfra> {
         this.useCase.toUpdateWareHouse()
         return this.useCase.execute(id, WareHouse)
     }

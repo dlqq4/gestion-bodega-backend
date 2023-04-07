@@ -4,6 +4,7 @@ import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { InventoryDelegate } from "src/application/delegates/Inventory.delegate";
 import { InventoryEntityInfra } from "../persistence/entities/Inventory.entity";
 import { InventoryService } from "../persistence/services/Inventory.service";
+import { InventoryDto } from "../dto/inventory.dto";
 
 
 
@@ -27,7 +28,7 @@ export class InventoryController {
 
     @ApiOperation({ summary: 'Create a new Inventory' })
     @Post('create-inventory')
-    crear(@Body() Inventory: InventoryEntityInfra): Observable<InventoryEntityInfra> {
+    crear(@Body() Inventory: InventoryDto): Observable<InventoryEntityInfra> {
         this.useCase.toCreateInventory()
         return this.useCase.execute(Inventory)
     }
@@ -59,7 +60,7 @@ export class InventoryController {
 
     @ApiOperation({ summary: 'Update to Inventory' })
     @Put('update-inventory')
-    actualizar(@Body() id: string, @Body() Inventory: InventoryEntityInfra): Observable<InventoryEntityInfra> {
+    actualizar(@Body() id: string, @Body() Inventory: InventoryDto): Observable<InventoryEntityInfra> {
         this.useCase.toUpdateInventory()
         return this.useCase.execute(id, Inventory)
     }
@@ -88,7 +89,7 @@ export class InventoryController {
      */
     @ApiOperation({ summary: 'Update Inventory Quantity and Level' })
     @Put('update-quantity-and-level')
-    updateQuantityInventory(@Body() id: string, @Body() Inventory: InventoryEntityInfra): Observable<InventoryEntityInfra> {
+    updateQuantityInventory(@Body() id: string, @Body() Inventory: InventoryDto): Observable<InventoryEntityInfra> {
         const { quantity } = Inventory;
         this.useCase.toUpdateQuantityInventory();
         return this.useCase.execute(id, { quantity } as InventoryEntityInfra);

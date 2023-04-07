@@ -4,6 +4,7 @@ import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { ProductDelegate } from "src/application/delegates/product.delegate";
 import { ProductEntityInfra } from "../persistence/entities/product.entity";
 import { ProductService } from "../persistence/services/product.service";
+import { ProductDto } from "../dto/product.dto";
 
 
 
@@ -27,7 +28,7 @@ export class ProductController {
 
     @ApiOperation({ summary: 'Create a new product' })
     @Post('create-product')
-    crear(@Body() product: ProductEntityInfra): Observable<ProductEntityInfra> {
+    crear(@Body() product: ProductDto): Observable<ProductEntityInfra> {
         this.useCase.toCreateProduct()
         return this.useCase.execute(product)
     }
@@ -43,7 +44,7 @@ export class ProductController {
 
     @ApiOperation({ summary: 'Update to product' })
     @Put('update-product')
-    actualizar(@Body() id: string, @Body() product: ProductEntityInfra): Observable<ProductEntityInfra> {
+    actualizar(@Body() id: string, @Body() product: ProductDto): Observable<ProductEntityInfra> {
         this.useCase.toUpdateProduct()
         return this.useCase.execute(id, product)
     }
