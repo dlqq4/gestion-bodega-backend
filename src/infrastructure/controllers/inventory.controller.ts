@@ -18,16 +18,16 @@ export class InventoryController {
      * de una clase.
      * @param {InventoryoRepositorio} InventoryoRepositorio - InventoryoRepositorio
      */
-    constructor(private readonly inventoryService : InventoryService) {
+    constructor(private readonly inventoryService: InventoryService) {
 
         this.useCase = new InventoryDelegate(this.inventoryService);
 
     }
 
-    
+
     @ApiOperation({ summary: 'Create a new Inventory' })
     @Post('create-inventory')
-    crear(@Body() Inventory: InventoryEntityInfra) : Observable<InventoryEntityInfra> {
+    crear(@Body() Inventory: InventoryEntityInfra): Observable<InventoryEntityInfra> {
         this.useCase.toCreateInventory()
         return this.useCase.execute(Inventory)
     }
@@ -35,34 +35,50 @@ export class InventoryController {
 
     @ApiOperation({ summary: 'Delete to Inventory' })
     @Delete('delete-inventory')
-    eliminar(@Body() id : string) : Observable <boolean>  {
+    eliminar(@Body() id: string): Observable<boolean> {
         this.useCase.toDeleteInventory()
+        return this.useCase.execute(id);
+    }
+
+
+    @ApiOperation({ summary: 'Search to all Inventory' })
+    @Get('find-all-inventory')
+    buscarTodos(): Observable<InventoryEntityInfra[]> {
+        this.useCase.toFindInventory()
+        return this.useCase.execute()
+    }
+
+
+    @Get('find-by-id')
+    findById(@Body() id: string): Observable<InventoryEntityInfra> {
+        this.useCase.toFindByIdInventory()
+        return this.useCase.execute(id);
+    }
+
+    @Put('level')
+    setInventoryLevel(@Body() inventoryData: { id: string }): Observable<string> {
+        const { id } = inventoryData;
+        this.useCase.toSetLevelInventory()
         return this.useCase.execute(id);
     }
 
 
     @ApiOperation({ summary: 'Update to Inventory' })
     @Put('update-inventory')
-    actualizar(@Body() id : string, @Body() Inventory : InventoryEntityInfra) : Observable<InventoryEntityInfra> {
+    actualizar(@Body() id: string, @Body() Inventory: InventoryEntityInfra): Observable<InventoryEntityInfra> {
         this.useCase.toUpdateInventory()
         return this.useCase.execute(id, Inventory)
     }
 
-     
-    @ApiOperation({ summary: 'Search to all Inventory' })
-    @Get('find-all-inventory')
-    buscarTodos() : Observable <InventoryEntityInfra[]>  {
-        this.useCase.toFindInventory()
-        return this.useCase.execute()
-    }
 
     
-     @Get('find-by-id')
-    findById(@Body() id: string): Observable<InventoryEntityInfra> {
-        this.useCase.toFindByIdInventory()
-        return this.useCase.execute(id);
+    @ApiOperation({ summary: 'Update Inventory Quantity and Level' })
+    @Put('update-quantity-and-level')
+    updateQuantityInventory(@Body() id: string, @Body() Inventory: InventoryEntityInfra): Observable<InventoryEntityInfra> {
+        const {quantity } = Inventory;
+        this.useCase.toUpdateQuantityInventory();
+        return this.useCase.execute(id, { quantity } as InventoryEntityInfra);
     }
-    
-    
+
 
 }
