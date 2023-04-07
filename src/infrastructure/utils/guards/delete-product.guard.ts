@@ -6,7 +6,7 @@ import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
 *
 */
 @Injectable()
-export class EliminarGuard implements CanActivate {
+export class DeleteGuard implements CanActivate {
 
   /**
    * Antes de pasar por el controlador debe superar el guard
@@ -20,7 +20,7 @@ export class EliminarGuard implements CanActivate {
     const body = req.body;
     const password = body?.contra;
 
-    return password === 'chauProducto';
+    return password === 'byeProduct';
 
   }
   

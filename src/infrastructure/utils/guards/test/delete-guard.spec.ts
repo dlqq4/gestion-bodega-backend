@@ -1,15 +1,16 @@
 import { Test } from "@nestjs/testing";
-import { EliminarGuard } from "../eliminar-producto.guard";
-import { ExecutionContext } from "@nestjs/common";
 
-describe('EliminarGuard', () => {
-  let guard: EliminarGuard;
+import { ExecutionContext } from "@nestjs/common";
+import { DeleteGuard } from "../delete-product.guard";
+
+describe('DeleteGuard', () => {
+  let guard: DeleteGuard;
 
   beforeEach(async () => {
     const moduleRef = await Test.createTestingModule({
-      providers: [EliminarGuard],
+      providers: [DeleteGuard],
     }).compile();
-    guard = moduleRef.get<EliminarGuard>(EliminarGuard);
+    guard = moduleRef.get<DeleteGuard>(DeleteGuard);
   });
 
   describe('canActivate', () => {

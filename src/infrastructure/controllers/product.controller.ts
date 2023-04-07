@@ -5,6 +5,7 @@ import { ProductDelegate } from "src/application/delegates/product.delegate";
 import { ProductEntityInfra } from "../persistence/entities/product.entity";
 import { ProductService } from "../persistence/services/product.service";
 import { ProductDto } from "../dto/product.dto";
+import { DeleteGuard } from "../utils/guards/delete-product.guard";
 
 
 
@@ -35,6 +36,7 @@ export class ProductController {
 
 
     @ApiOperation({ summary: 'Delete to product' })
+    @UseGuards(DeleteGuard)
     @Delete('delete-product')
     eliminar(@Body() id: string): Observable<boolean> {
         this.useCase.toDeleteProduct()
