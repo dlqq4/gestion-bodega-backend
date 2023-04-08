@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose, { HydratedDocument } from "mongoose";
-import { ProductDomain } from "src/domain/models/product.model";
+import { ProductDomain } from "../../../../../domain/models/product.model";
 
 
 @Schema({ collection: 'product', versionKey: false })
@@ -14,7 +14,7 @@ export class ProductMongo extends ProductDomain{ //ACA DEBO EXTENDER DE EL PRODU
     description: string;
 
     @Prop({ type: Number, index: true })
-    price: string;
+    price: number;
 
     @Prop({ type: String, index: true })
     photo: string;

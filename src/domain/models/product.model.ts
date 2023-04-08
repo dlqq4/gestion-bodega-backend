@@ -9,7 +9,7 @@ export class ProductDomain implements IProductModel{
     
     description: string;
 
-    price: string;
+    price: number;
 
     photo: string;
 

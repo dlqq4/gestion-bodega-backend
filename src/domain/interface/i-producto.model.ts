@@ -6,7 +6,7 @@ export interface IProductModel {
     
     description: string;
 
-    price: string;
+    price: number;
 
     photo: string;
 
