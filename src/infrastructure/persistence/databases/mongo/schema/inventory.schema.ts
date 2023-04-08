@@ -1,7 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose, { HydratedDocument } from "mongoose";
-import { InventoryDomain } from "src/domain/models/inventory.model";
-import { ProductDomain } from "src/domain/models/product.model";
+import { InventoryDomain } from "../../../../../domain/models/inventory.model";
 import { ProductMongo } from "./product.schema";
 import { WareHouseMongo } from "./warehouse.schema";
 

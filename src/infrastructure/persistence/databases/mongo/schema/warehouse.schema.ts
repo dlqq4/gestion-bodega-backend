@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose, { HydratedDocument } from "mongoose";
-import { WareHouseDomain } from "src/domain/models/warehouse.model";
+import { WareHouseDomain } from "../../../../../domain/models/warehouse.model";
 
 
 @Schema({ collection: 'warehouse', versionKey: false })

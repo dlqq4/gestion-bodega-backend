@@ -257,7 +257,7 @@ describe('ProductMongoRepository', () => {
 
   });
 
-  //********
+
   describe('findById', () => {
     it('Debe devolver un ProductMongo actualizado', async () => {
 
@@ -292,6 +292,5 @@ describe('ProductMongoRepository', () => {
 
   });
 
-  //******** 
 
 })
