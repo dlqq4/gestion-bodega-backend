@@ -255,9 +255,43 @@ describe('ProductMongoRepository', () => {
       });
     });
 
+  });
+
+  //********
+  describe('findById', () => {
+    it('Debe devolver un ProductMongo actualizado', async () => {
+
+      // Arrange
+      const _id = '642eff6e20b57580dfc38a7f';
+
+      const mockProductMongo = {
+        _id: "642eff6e20b57580dfc38a7f",
+        brand: "DC",
+        description: "Figure action Batman",
+        price: 4000,
+        photo: "https://i.pinimg.com/564x/2a/24/f7/2a24f77d8fb55061fbf152154a3f8a2f.jpg"
+      };
+
+      const expectedProductMongo = {
+        _id: "642eff6e20b57580dfc38a7f",
+        brand: "DC",
+        description: "Figure action Batman",
+        price: 4000,
+        photo: "https://i.pinimg.com/564x/2a/24/f7/2a24f77d8fb55061fbf152154a3f8a2f.jpg"
+      };
+
+      jest
+        .spyOn(productMongoModel, 'findById').mockResolvedValue(mockProductMongo as any);
+
+      // Act
+      const result = productMongoRepository.findById(_id);
+
+      // Assert
+      expect(await lastValueFrom(result)).toEqual(expectedProductMongo);
+    });
 
   });
 
-
+  //******** 
 
 })
