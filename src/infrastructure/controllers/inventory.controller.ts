@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Post, Put, UseGuards } from "@nestjs/common";
 import { Observable } from "rxjs";
 import { ApiOperation, ApiTags } from "@nestjs/swagger";
-import { InventoryDelegate } from "src/application/delegates/Inventory.delegate";
+import { InventoryDelegate } from "../../application/delegates/inventory.delegate";
 import { InventoryEntityInfra } from "../persistence/entities/Inventory.entity";
 import { InventoryService } from "../persistence/services/Inventory.service";
 import { InventoryDto } from "../dto/inventory.dto";
@@ -28,7 +28,7 @@ export class InventoryController {
 
     @ApiOperation({ summary: 'Create a new Inventory' })
     @Post('create-inventory')
-    crear(@Body() Inventory: InventoryDto): Observable<InventoryEntityInfra> {
+    create(@Body() Inventory: InventoryDto): Observable<InventoryEntityInfra> {
         this.useCase.toCreateInventory()
         return this.useCase.execute(Inventory)
     }
@@ -36,7 +36,7 @@ export class InventoryController {
 
     @ApiOperation({ summary: 'Delete to Inventory' })
     @Delete('delete-inventory')
-    eliminar(@Body() id: string): Observable<boolean> {
+    delete(@Body() id: string): Observable<boolean> {
         this.useCase.toDeleteInventory()
         return this.useCase.execute(id);
     }
@@ -44,7 +44,7 @@ export class InventoryController {
 
     @ApiOperation({ summary: 'Search to all Inventory' })
     @Get('find-all-inventory')
-    buscarTodos(): Observable<InventoryEntityInfra[]> {
+    findAll(): Observable<InventoryEntityInfra[]> {
         this.useCase.toFindInventory()
         return this.useCase.execute()
     }
@@ -60,7 +60,7 @@ export class InventoryController {
 
     @ApiOperation({ summary: 'Update to Inventory' })
     @Put('update-inventory')
-    actualizar(@Body() id: string, @Body() Inventory: InventoryDto): Observable<InventoryEntityInfra> {
+    update(@Body() id: string, @Body() Inventory: InventoryDto): Observable<InventoryEntityInfra> {
         this.useCase.toUpdateInventory()
         return this.useCase.execute(id, Inventory)
     }

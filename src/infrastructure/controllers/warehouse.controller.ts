@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Post, Put, UseGuards } from "@nestjs/common";
 import { Observable } from "rxjs";
 import { ApiOperation, ApiTags } from "@nestjs/swagger";
-import { WareHouseDelegate } from "src/application/delegates/WareHouse.delegate";
+import { WareHouseDelegate } from "../../application/delegates/warehouse.delegate";
 import { WareHouseEntityInfra } from "../persistence/entities/WareHouse.entity";
 import { WareHouseService } from "../persistence/services/WareHouse.service";
 import { WareHouseDto } from "../dto/warehouse.dto";
@@ -28,7 +28,7 @@ export class WareHouseController {
     
     @ApiOperation({ summary: 'Create a new WareHouse' })
     @Post('create-wareHouse')
-    crear(@Body() WareHouse: WareHouseDto) : Observable<WareHouseEntityInfra> {
+    create(@Body() WareHouse: WareHouseDto) : Observable<WareHouseEntityInfra> {
         this.useCase.toCreateWareHouse()
         return this.useCase.execute(WareHouse)
     }
@@ -36,7 +36,7 @@ export class WareHouseController {
 
     @ApiOperation({ summary: 'Delete to WareHouse' })
     @Delete('delete-wareHouse')
-    eliminar(@Body() id : string) : Observable <boolean>  {
+    delete(@Body() id : string) : Observable <boolean>  {
         this.useCase.toDeleteWareHouse()
         return this.useCase.execute(id);
     }
@@ -44,7 +44,7 @@ export class WareHouseController {
 
     @ApiOperation({ summary: 'Update to WareHouse' })
     @Put('update-wareHouse')
-    actualizar(@Body() id : string, @Body() WareHouse : WareHouseDto) : Observable<WareHouseEntityInfra> {
+    update(@Body() id : string, @Body() WareHouse : WareHouseDto) : Observable<WareHouseEntityInfra> {
         this.useCase.toUpdateWareHouse()
         return this.useCase.execute(id, WareHouse)
     }
@@ -52,7 +52,7 @@ export class WareHouseController {
      
     @ApiOperation({ summary: 'Search to all WareHouse' })
     @Get('find-all-wareHouse')
-    buscarTodos() : Observable <WareHouseEntityInfra[]>  {
+    findAll() : Observable <WareHouseEntityInfra[]>  {
         this.useCase.toFindWareHouse()
         return this.useCase.execute()
     }
