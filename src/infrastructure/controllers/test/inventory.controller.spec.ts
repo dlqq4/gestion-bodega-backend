@@ -342,5 +342,40 @@ describe('HareHouseController', () => {
         });
     });
 
+    describe('setInventoryLevel', () => {
+        it('should return an Observable of type string', (done) => {
+            // Arrange
+            const id = '642fa2f610712d642de460b3';
+            const mockData = 'success';
+            const expectedData = 'success';
+            const expectedInstanceType = Observable;
+    
+            const stubExecute = jest.fn(
+                () => new Observable<string>((subscriber) => {
+                    subscriber.next(mockData);
+                    subscriber.complete();
+                }),
+            );
+    
+            jest.spyOn(InventoryDelegate.prototype, 'execute').mockReturnValue(stubExecute());
+    
+            // Act
+            const result = controller.setInventoryLevel({ id });
+    
+            // Assert
+            expect(stubExecute).toHaveBeenCalled();
+            expect(result).toBeInstanceOf(expectedInstanceType);
+            result.subscribe({
+                next: (value) => {
+                    expect(value).toEqual(expectedData);
+                    done();
+                },
+            });
+        });
+    });
+
+
+    
+
 
 });
