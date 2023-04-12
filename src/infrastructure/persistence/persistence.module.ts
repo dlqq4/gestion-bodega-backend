@@ -1,9 +1,8 @@
 import { Module } from "@nestjs/common";
 import { ProductService } from "./services/product.service";
 import { MongoModule } from "./databases/mongo/mongo.module";
-
-import { InventoryService } from "./services/Inventory.service";
 import { WareHouseService } from "../../infrastructure/persistence/services/warehouse.service";
+import { InventoryService } from "./services/Inventory.service";
 
 
 @Module({

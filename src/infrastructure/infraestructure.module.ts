@@ -1,8 +1,9 @@
 import { Module } from "@nestjs/common";
-import { PersistenceModule } from "./persistence/persistence.module";
+import { InventoryController } from "./controllers/inventory.controller";
 import { ProductController } from "./controllers/product.controller";
 import { WareHouseController } from "./controllers/warehouse.controller";
-import { InventoryController } from "./controllers/inventory.controller";
+import { PersistenceModule } from "./persistence/persistence.module";
+
 
 
 @Module({
