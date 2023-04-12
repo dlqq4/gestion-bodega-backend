@@ -1,6 +1,6 @@
 import { IInventoryRepository } from "../../../domain/i-repository/i-inventory.repositoty";
 import { IUseCase } from "../interface/use-case.interface";
-import { InventoryDomain } from "src/domain/models/inventory.model";
+import { InventoryDomain } from "../../../domain/models/inventory.model";
 import { Observable, map, switchMap } from "rxjs";
 
 export class SetInventoryLevelByIdUseCase implements IUseCase {

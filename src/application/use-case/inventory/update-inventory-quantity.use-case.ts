@@ -1,6 +1,6 @@
 import { Observable, switchMap } from "rxjs";
 import { IInventoryRepository } from "../../../domain/i-repository/i-inventory.repositoty";
-import { InventoryDomain } from "src/domain/models/inventory.model";
+import { InventoryDomain } from "../../../domain/models/inventory.model";
 import { IUseCase } from "../interface/use-case.interface";
 
 

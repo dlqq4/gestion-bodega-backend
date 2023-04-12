@@ -1,7 +1,7 @@
 import { IInventoryRepository } from "../../../domain/i-repository/i-inventory.repositoty";
 import { IUseCase } from "../interface/use-case.interface";
 import { Observable, map } from "rxjs";
-import { InventoryDomain } from "src/domain/models/inventory.model";
+import { InventoryDomain } from "../../../domain/models/inventory.model";
 
 export class LowInventoryAlertUseCase implements IUseCase {
     constructor(private readonly inventoryRepository: IInventoryRepository) {}
