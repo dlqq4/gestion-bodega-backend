@@ -3,7 +3,8 @@ import { Observable } from "rxjs";
 import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { InventoryDelegate } from "../../application/delegates/inventory.delegate";
 import { InventoryEntityInfra } from "../../infrastructure/persistence/entities/inventory.entity";
-import { InventoryService } from "../persistence/services/Inventory.service";
+//import { InventoryService } from "../persistence/services/Inventory.service";
+import { InventoryService } from "../../infrastructure/persistence/services/inventory.service";
 import { InventoryDto } from "../dto/inventory.dto";
 
 
