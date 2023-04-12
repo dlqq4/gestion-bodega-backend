@@ -2,7 +2,7 @@ import { Test, TestingModule } from "@nestjs/testing";
 import { Observable, from, of } from "rxjs";
 import { WareHouseController } from "../WareHouse.controller";
 import { WareHouseMongoRepository } from "../../persistence/databases/mongo/repositories/WareHouse.repository";
-import { WareHouseService } from "../../persistence/services/WareHouse.service";
+import { WareHouseService } from "../../../infrastructure/persistence/services/warehouse.service";
 import { WareHouseEntityInfra } from "src/infrastructure/persistence/entities/WareHouse.entity";
 import { WareHouseDelegate } from "../../../application/delegates/WareHouse.delegate";
 import { WareHouseMongo } from "../../persistence/databases/mongo/schema/WareHouse.schema";

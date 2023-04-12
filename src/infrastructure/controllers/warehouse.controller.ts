@@ -3,7 +3,7 @@ import { Observable } from "rxjs";
 import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { WareHouseDelegate } from "../../application/delegates/warehouse.delegate";
 import { WareHouseEntityInfra } from "../persistence/entities/WareHouse.entity";
-import { WareHouseService } from "../persistence/services/WareHouse.service";
+import { WareHouseService } from "../../infrastructure/persistence/services/warehouse.service";
 import { WareHouseDto } from "../dto/warehouse.dto";
 
 
