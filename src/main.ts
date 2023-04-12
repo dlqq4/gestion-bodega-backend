@@ -28,7 +28,7 @@ async function bootstrap() {
 
   //**********************************************************************/
   
-  await app.listen(3000);
+  await app.listen(process.env.PORT);
 
   console.log(`🚀 App is running on: ${await app.getUrl()} - WAREHOUSE MANAGEMENT - BACKEND`)
 
