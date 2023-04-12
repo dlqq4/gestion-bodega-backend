@@ -2,7 +2,7 @@ import { Observable } from "rxjs";
 
 import { WareHouseDomain } from "src/domain/models/warehouse.model";
 import { CreateInventoryUseCase } from "../use-case/inventory/create-inventory.use-case";
-import { IInventoryRepository } from "src/domain/i-repository/i-Inventory.repositoty";
+import { IInventoryRepository } from "../../domain/i-repository/i-Inventory.repositoty";
 import { InventoryDomain } from "src/domain/models/inventory.model";
 
 

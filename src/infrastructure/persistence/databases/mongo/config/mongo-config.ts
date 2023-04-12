@@ -17,7 +17,8 @@ export class MongoConfigService implements MongooseOptionsFactory {
     * @returns El objeto MongooseModuleOptions.
     */
     createMongooseOptions(): MongooseModuleOptions | Promise<MongooseModuleOptions> {
-        return {uri: 'mongodb://127.0.0.1:27017', authSource: 'admin', dbName: 'Bodega'};
+        //return {uri: 'mongodb://127.0.0.1:27017', authSource: 'admin', dbName: 'Bodega'};
+        return {uri: 'mongodb://mongo:5dANCu1FP8a3Eh1ch76T@containers-us-west-3.railway.app:6654', authSource: 'admin', dbName: 'Bodega'};
     }
 
     

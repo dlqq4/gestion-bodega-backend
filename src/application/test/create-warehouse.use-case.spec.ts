@@ -1,6 +1,6 @@
 import { Observable } from "rxjs";
 import { CreateWareHouseUseCase } from "../use-case/warehouse/create-warehouse.use-case";
-import { IWareHouseRepository } from "src/domain/i-repository/i-WareHouse.repositoty";
+import { IWareHouseRepository } from "../../domain/i-repository/i-WareHouse.repositoty";
 import { WareHouseDomain } from "src/domain/models/warehouse.model";
 
 

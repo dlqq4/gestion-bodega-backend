@@ -1,4 +1,4 @@
-import { IProductRepository } from "src/domain/i-repository/i-product.repositoty";
+import { IProductRepository } from "../../domain/i-repository/i-product.repositoty";
 import { DeleteProductUseCase } from "../use-case/product/delete-product.use-case";
 import { Observable } from "rxjs";
 

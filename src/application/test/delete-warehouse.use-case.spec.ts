@@ -1,4 +1,4 @@
-import { IWareHouseRepository } from "src/domain/i-repository/i-WareHouse.repositoty";
+import { IWareHouseRepository } from "../../domain/i-repository/i-WareHouse.repositoty";
 import { DeleteWareHouseUseCase } from "../use-case/warehouse/delete-warehouse.use-case";
 import { Observable } from "rxjs";
 

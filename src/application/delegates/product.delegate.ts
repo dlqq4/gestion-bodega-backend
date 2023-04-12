@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { IUseCase } from '../use-case/interface/use-case.interface';
-import { IProductRepository } from 'src/domain/i-repository/i-product.repositoty';
+import { IProductRepository } from '../../domain/i-repository/i-product.repositoty';
 import { CreateProductUseCase} from '../use-case/product/create-product.use-case';
 import { DeleteProductUseCase } from '../use-case/product/delete-product.use-case';
 import { FindProductUseCase } from '../use-case/product/find-product.use-case';

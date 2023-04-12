@@ -1,4 +1,4 @@
-import { IInventoryRepository } from "src/domain/i-repository/i-Inventory.repositoty";
+import { IInventoryRepository } from "../../domain/i-repository/i-Inventory.repositoty";
 import { DeleteInventoryUseCase } from "../use-case/inventory/delete-inventory.use-case";
 import { Observable } from "rxjs";
 
