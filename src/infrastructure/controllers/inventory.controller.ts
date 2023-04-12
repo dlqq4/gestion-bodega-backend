@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Post, Put, UseGuards } from "@nestjs/com
 import { Observable } from "rxjs";
 import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { InventoryDelegate } from "../../application/delegates/inventory.delegate";
-import { InventoryEntityInfra } from "../persistence/entities/Inventory.entity";
+import { InventoryEntityInfra } from "../../infrastructure/persistence/entities/inventory.entity";
 import { InventoryService } from "../persistence/services/Inventory.service";
 import { InventoryDto } from "../dto/inventory.dto";
 
