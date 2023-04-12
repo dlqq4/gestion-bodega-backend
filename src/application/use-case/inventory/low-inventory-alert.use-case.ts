@@ -1,4 +1,4 @@
-import { IInventoryRepository } from "../../../domain/i-repository/i-Inventory.repositoty";
+import { IInventoryRepository } from "../../../domain/i-repository/i-inventory.repositoty";
 import { IUseCase } from "../interface/use-case.interface";
 import { Observable, map } from "rxjs";
 import { InventoryDomain } from "src/domain/models/inventory.model";
