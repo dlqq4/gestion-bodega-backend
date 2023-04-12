@@ -1,6 +1,7 @@
 import { Injectable, InternalServerErrorException } from "@nestjs/common"
 import { IRepository } from "./base/repository.base"
-import { InventoryMongo, InventoryMongoDocument } from "../schema/Inventory.schema"
+import { InventoryMongo } from "../../mongo/schema/inventory.schema"
+import { InventoryMongoDocument } from "../../mongo/schema/inventory.schema"
 import { Model } from "mongoose"
 import { InjectModel } from "@nestjs/mongoose"
 import { Observable, catchError, from, map } from "rxjs"
