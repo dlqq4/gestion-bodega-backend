@@ -1,7 +1,6 @@
 import { Observable } from 'rxjs';
 import { IUseCase } from '../use-case/interface/use-case.interface';
 import { IWareHouseRepository } from '../../domain/i-repository/i-warehouse.repositoty';
-//import { IWareHouseRepository } from '../../domain/i-repository/i-WareHouse.repositoty';
 import { CreateWareHouseUseCase} from '../use-case/warehouse/create-warehouse.use-case';
 import { DeleteWareHouseUseCase } from '../use-case/warehouse/delete-warehouse.use-case';
 import { FindWareHouseUseCase } from '../use-case/warehouse/find-warehouse.use-case';
