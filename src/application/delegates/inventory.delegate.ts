@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { IUseCase } from '../use-case/interface/use-case.interface';
-import { IInventoryRepository } from '../../domain/i-repository/i-Inventory.repositoty';
+import { IInventoryRepository } from '../../domain/i-repository/i-inventory.repositoty';
 import { CreateInventoryUseCase} from '../use-case/inventory/create-inventory.use-case';
 import { DeleteInventoryUseCase } from '../use-case/inventory/delete-inventory.use-case';
 import { FindInventoryUseCase } from '../use-case/inventory/find-inventory.use-case';
