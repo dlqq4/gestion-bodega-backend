@@ -36,7 +36,7 @@ export class InventoryController {
 
 
     @ApiOperation({ summary: 'Delete to Inventory' })
-    @Delete('delete-inventory')
+    @Post('delete-inventory')
     delete(@Body() id: string): Observable<boolean> {
         this.useCase.toDeleteInventory()
         return this.useCase.execute(id);
