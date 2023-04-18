@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { MongoServerErrorExceptionFilter } from './infrastructure/exception-filters/mongo-server-error.exception-filter';
+import { MongoServerErrorExceptionFilter } from '../src/infrastructure/exception-filters/mongo-server-error.exception-filter';
 
 
 

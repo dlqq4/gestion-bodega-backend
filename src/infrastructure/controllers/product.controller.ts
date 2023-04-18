@@ -61,7 +61,7 @@ export class ProductController {
 
     
     
-    @Get('find-by-id')
+    @Post('find-by-id')
     findById(@Body() id: string): Observable<ProductEntityInfra> {
         this.useCase.toFindByIdProduct()
         return this.useCase.execute(id);
