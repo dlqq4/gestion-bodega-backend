@@ -374,8 +374,104 @@ describe('HareHouseController', () => {
         });
     });
 
+    describe('updateQuantityInventory', () => {
+        it('should update the quantity of an inventory', (done) => {
+          // Arrange
+          const _id = '642fa2f610712d642de460b3';
+      
+          const updatedInventory = {
+            _id: '642fa2f610712d642de460b3',
+            product: '642f658515ea2d5196948be6',
+            warehouse: '642f4085235dc7d9d0120519',
+            level: 'low',
+            quantity: 1,
+          };
+      
+          const expectedData = {
+            _id : '642fa2f610712d642de460b3',
+            product: {
+              brand: 'Marvel',
+              description: 'Figure action Ryu Street Fighter',
+              price: 9080,
+              photo: 'https://i.pinimg.com/564x/2a/24/f7/2a24f77d8fb55061fbf152154a3f8a2f.jpg',
+            },
+            warehouse: {
+              name: 'Los Santos',
+              address: 'California, USA',
+              phone: '0947890223263',
+            },
+            level: 'low',
+            quantity: 1,
+          };
+      
+          const expectedInstanceType = Observable<InventoryEntityInfra>;
+      
+          const mockToUpdateQuantityInventory = jest.fn(
+            () =>
+              new Observable<InventoryEntityInfra>((subscriber) => {
+                subscriber.next({ _id, ...expectedData } as unknown as InventoryEntityInfra);
+                subscriber.complete();
+              })
+          );
+          jest
+          .spyOn(InventoryDelegate.prototype, 'execute').mockReturnValue(mockToUpdateQuantityInventory());
+      
+          // Act
+          const result = controller.updateQuantityInventory(_id, updatedInventory);
+      
+          // Assert
+          
+        expect(mockToUpdateQuantityInventory).toHaveBeenCalled();
+        expect(result).toBeInstanceOf(expectedInstanceType);
+      
+          result.subscribe({
+            next: (value) => {
+              expect(value).toEqual(expectedData);
+              done();
+            },
+          });
+        });
+      });
+      
+    //******************************************************************** */
 
+    describe('lowInventoryAlert', () => {
+        it('should return a string with the low inventory alert', (done) => {
+          // Arrange
+          const _id = '123456';
+      
+          const expectedData = 'Low inventory alert';
+      
+          const mockToLowInventoryAlert = jest.fn(
+            () =>
+              new Observable<string>((subscriber) => {
+                subscriber.next(expectedData);
+                subscriber.complete();
+              })
+          );
+          const mockExecute = jest.fn().mockReturnValue(mockToLowInventoryAlert());
+
+          jest.spyOn(InventoryDelegate.prototype, 'execute').mockReturnValue(mockToLowInventoryAlert());
+      
+          // Act
+          const result = controller.lowInventoryAlert(_id);
+      
+          // Assert
+          //expect(mockExecute).toHaveBeenCalledWith(_id);
+          expect(result).toBeInstanceOf(Observable);
+          result.subscribe({
+            next: (value) => {
+              expect(value).toEqual(expectedData);
+              done();
+            },
+          });
+        });
+      });
+      
     
+
+
+    //******************************************************************** */
 
 
 });

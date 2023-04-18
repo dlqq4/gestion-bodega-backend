@@ -1,10 +1,15 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { MongoServerErrorExceptionFilter } from './infrastructure/exception-filters/mongo-server-error.exception-filter';
+
+
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+  
+  //**************************EXCEPTION FILTER*************************/
+  app.useGlobalFilters(new MongoServerErrorExceptionFilter());
 
   //**************************SWAGGER**********************************/
 
